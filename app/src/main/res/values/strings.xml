@@ -45,7 +45,6 @@
     <string name="torus_native_google_verifier_id">torus-direct-google-jwt</string>
     <string name="torus_native_google_client_id">391189746290-khl7c0p6d0d9sv51f2kg7jrqph7o0c30.apps.googleusercontent.com</string>
     <string name="login">Login</string>
-    <string name="aggregate_login">Aggregate Login</string>
     <string name="select_login_type">Select login type</string>
     <string name="single_verifier_login">Single-verifier login</string>
     <string name="multiple_verifier_login">Multiple-verifier login</string>
