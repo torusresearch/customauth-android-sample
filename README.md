@@ -21,8 +21,8 @@ Examples of using [Torus CustomAuth Android SDK].
 **Caveat**
 
 Native Google Sign-In sometimes return the same ID token even if we already
-called [`revokeAccess` and `signOut`](https://developers.google.com/identity/sign-in/android/disconnect)
-, Torus Nodes will always reject token previously used to authenticate to avoid one node can
+called [`revokeAccess` and `signOut`](https://developers.google.com/identity/sign-in/android/disconnect),
+Torus Nodes will always reject token previously used to authenticate to avoid one node can
 reconstruct the user's key.
 
 To make sure that Google Android Sign-In always succeed, makes sure to store the user's key in
