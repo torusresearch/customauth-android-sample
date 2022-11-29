@@ -1,0 +1,91 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.web3auth.custom_auth_wallet_app'
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.web3auth.custom_auth_wallet_app"
+        minSdk 24
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+        manifestPlaceholders = [
+                'torusRedirectScheme'    : 'torusapp',
+                'torusRedirectHost'      : 'org.torusresearch.customauthandroid',
+                'torusRedirectPathPrefix': '/redirect'
+        ]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    //Web3Auth
+    implementation 'org.torusresearch:customauth-android-sdk:4.0.3'
+
+    //ViewModel
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.0'
+
+    // retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+
+    // Gson
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // coroutine
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
+
+    // Encoding
+    implementation 'com.google.code.gson:gson:2.9.0'
+
+    //Web3j
+    implementation 'org.web3j:core:4.8.7-android'
+
+    //QR code generator
+    implementation 'com.google.zxing:core:3.4.1'
+    implementation 'com.journeyapps:zxing-android-embedded:4.3.0'
+
+    //solana
+    implementation('com.mmorrell:solanaj:1.12') {
+        ['org.bouncycastle', 'com.google.protobuf'].each {
+            exclude group: it
+        }
+    }
+
+    // android security
+    implementation 'androidx.security:security-crypto:1.0.0-alpha02'
+
+    //custom browser
+    implementation 'androidx.browser:browser:1.4.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+}

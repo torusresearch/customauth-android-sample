@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clHeader"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/activity_header_color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_arrow_left"
+            android:layout_marginTop="45dp"
+            android:layout_marginStart="34dp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/onboarding_header"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@string/onboarding_sub_header"
+            android:textSize="16dp"
+            android:textColor="@color/text_color"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvHeading" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clBody"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/activity_bg_color"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvContinue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="136dp"
+            android:text="@string/continue_with"
+            android:textColor="@color/grey"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivGoogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/iv_google"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:background="@drawable/bg_circular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvContinue" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_facebook"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_circular"
+            app:layout_constraintStart_toEndOf="@+id/ivGoogle"
+            app:layout_constraintTop_toBottomOf="@+id/tvContinue" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTwitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_twitter"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_circular"
+            app:layout_constraintStart_toEndOf="@+id/ivFacebook"
+            app:layout_constraintTop_toBottomOf="@+id/tvContinue" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivDiscord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_discord"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_circular"
+            app:layout_constraintStart_toEndOf="@+id/ivTwitter"
+            app:layout_constraintTop_toBottomOf="@+id/tvContinue" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFullLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_expand_arrow"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_circular"
+            app:layout_constraintStart_toEndOf="@+id/ivDiscord"
+            app:layout_constraintTop_toBottomOf="@+id/tvContinue" />
+
+        <RelativeLayout
+            android:id="@+id/rlSocialLogins"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivFullLogin">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:background="@drawable/bg_circular"
+                android:src="@drawable/ic_line" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivApple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_toRightOf="@+id/ivLine"
+                android:background="@drawable/bg_circular"
+                android:src="@drawable/ic_apple" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLinkedin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_toRightOf="@+id/ivApple"
+                android:background="@drawable/bg_circular"
+                android:src="@drawable/ic_linkedin" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivGithub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_toRightOf="@+id/ivLinkedin"
+                android:background="@drawable/bg_circular"
+                android:src="@drawable/ic_github" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivTwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:layout_toRightOf="@+id/ivGithub"
+                android:background="@drawable/bg_circular"
+                android:src="@drawable/ic_twitch_inactive" />
+
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rlSocialLogins"
+            android:background="@color/line_separator_color" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="24dp"
+            android:text="@string/email"
+            android:textColor="@color/grey"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="@string/email"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:paddingLeft="20sp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/bg_edit_text"
+            app:layout_constraintTop_toBottomOf="@+id/tvEmail"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:text="@string/continue_with_email"
+            android:layout_marginStart="53dp"
+            android:layout_marginEnd="53dp"
+            android:layout_marginTop="16dp"
+            android:textAllCaps="false"
+            android:textColor="@color/text_color"
+            android:background="@drawable/bg_button_grey"
+            app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

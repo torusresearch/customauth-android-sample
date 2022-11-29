@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Web3Auth Wallet</string>
+    <string name="login_heading">로그인할 네트워크 및 블록체인 선택</string>
+    <string name="select_network">Web3Auth 네트워크</string>
+    <string name="select_blockchain">블록체인</string>
+    <string name="onboarding_header">보드에 오신 것을 환영합니다</string>
+    <string name="onboarding_sub_header">계속할 방법을 선택하십시오</string>
+    <string name="continue_with">계속</string>
+    <string name="continue_with_email">이메일로 계속</string>
+    <string name="email">이메일</string>
+    <string name="address">주소</string>
+    <string name="welcome">어서 오십시오</string>
+    <string name="invalid_email">잘못된 이메일</string>
+    <string name="account_details">계정 세부정보</string>
+    <string name="account_balance">계정 잔액</string>
+    <string name="transfer_assets">자산 양도</string>
+    <string name="settings">설정</string>
+    <string name="sign_message_demo">서명 메시지(데모)</string>
+    <string name="message">메시지</string>
+    <string name="enter_message">여기에 메시지를 입력하세요</string>>
+    <string name="send_to">보내기</string>
+    <string name="select_item_transfer">전송할 항목 선택</string>
+    <string name="sign_message">서명 메시지</string>
+    <string name="web3j_connection_error">Web3j에 연결하는 동안 오류가 발생했습니다</string>
+    <string name="amount">양</string>
+    <string name="send_all">모두 보내기</string>
+    <string name="edit">편집하다</string>
+    <string name="max_transaction_fee">최대 거래 수수료</string>
+    <string name="total_cost">총 비용</string>
+    <string name="transfer">옮기다</string>
+    <string name="login">로그인</string>
+    <string name="onboarding_error">OnBoardingError</string>
+    <string name="transaction_placed">거래가 이루어짐</string>
+    <string name="transaction_failed">거래 실패</string>
+    <string name="transaction_success">거래 성공</string>
+    <string name="transaction_pending">거래 대기 중</string>
+    <string name="something_went_wrong">문제가 발생했습니다</string>
+    <string name="try_again">지금 다시 시도하세요</string>
+    <string name="eth_view_account"><u>Etherscan에서 계정 보기</u></string>
+    <string name="poly_view_account"><u>Polygonscan에서 계정 보기</u></string>
+    <string name="sol_view_account"><u>Solana Explorer에서 계정 보기</u></string>
+    <string name="eth_view_transaction_status"><u>Etherscan에서 트랜잭션 상태 보기</u></string>
+    <string name="poly_view_transaction_status"><u>Polygonscan에서 트랜잭션 상태 보기</u></string>
+    <string name="sol_view_transaction_status"><u>Solana Explorer에서 트랜잭션 상태 보기</u></string>
+    <string name="polygon_transaction_status_url">https://mumbai.polygonscan.com/</string>
+    <string name="eth_transaction_status_url">https://etherscan.io/</string>
+    <string name="sol_transaction_status_url">https://explorer.solana.com/</string>
+    <string name="sol_transaction_status_url_testnet">https://explorer.solana.com/</string>
+    <string name="sol_transaction_status_url_devnet">https://explorer.solana.com/</string>
+    <string name="web3Auth_redirection_url">torusapp://org.torusresearch.web3authexample/redirect</string>
+    <string name="sign_failed">로그인 실패</string>
+    <string name="web3Auth_app_name">Web3Auth Sample App</string>
+    <string name="mainnet">Mainnet</string>
+    <string name="sign_success">성공적으로 서명</string>
+    <string name="insufficient_balance">잔액 불충분</string>
+    <string name="copy"><u>복사</u></string>
+    <string name="confirm_transaction">거래 확인</string>
+    <string name="amount_to_send">보낼 금액</string>
+    <string name="confirm">확인하다</string>
+    <string name="cancel">취소</string>
+    <string name="error">error</string>
+    <string name="denied_camera_permission">카메라 권한 누락으로 인해 취소됨</string>
+    <string name="max_trans_dialog_heading">지불 가능한 최대 거래 수수료 선택</string>
+    <string name="max_trans_dialog_instruction">더 높은 수수료를 지불하면 네트워크에서 거래의 우선 순위를 정합니다</string>
+    <string name="process_in_30sec">처리 ~ 30.0 seconds</string>
+    <string name="process_in_90sec">처리 ~ 90.0 seconds</string>
+    <string name="cancelled">취소 된</string>
+    <string name="process_in">처리 ~</string>
+    <string name="seconds">seconds</string>
+    <string name="upto">까지 </string>
+    <string name="fast">빠른</string>
+    <string name="slow">느린</string>
+    <string name="average">평균</string>
+    <string name="save">구하다</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="discord">Discord</string>
+    <string name="line">Line</string>
+    <string name="reddit">Reddit</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="wechat">Wechat</string>
+    <string name="kakao">Kakao</string>
+    <string name="github">Github</string>
+    <string name="twitch">Twitch</string>
+    <string name="apple">Apple</string>
+    <string name="usd">USD</string>
+    <string name="inr">INR</string>
+    <string name="invalid_message">잘못된 메시지</string>
+    <string name="loading_balance">로드 밸런스</string>
+    <string name="connect_to_internet">인터넷 연결을 사용할 수 없습니다.</string>
+    <string name="enter_amt_to_transfer">이체할 금액 입력</string>
+    <string name="enter_address">주소 입력</string>
+    <string name="invalid_address">잘못된 주소</string>
+    <string name="web3auth_project_id">BASdZxp5tWqPGkzbOU4VMJsnz8QOpJ2pyxf6kZcuxI8AJ1gsOw5MgbW96RpAAx_Kk-5p4rhOopPhCa9kR_9mKpE</string>
+    <string name="ethereum">ETH Mainnet</string>
+    <string name="solana">Solana</string>
+    <string name="sol_testnet">Solana Testnet</string>
+    <string name="sol_devnet">Solana Devnet</string>
+    <string name="user_account_address">address/</string>
+    <string name="transaction">tx/</string>
+    <string name="on">에</string>
+    <string name="off">끄다</string>
+    <string name="english">English</string>
+    <string name="german">German</string>
+    <string name="spanish">Spanish</string>
+    <string name="japanese">Japanese</string>
+    <string name="korean">Korean</string>
+    <string name="mandarin">Mandarin</string>
+    <string name="logout">로그 아웃</string>
+    <string name="language">언어</string>
+    <string name="dark_mode">다크 모드</string>
+
+    <string-array name="networks">
+        <item>Mainnet</item>
+        <item>Testnet</item>
+        <item>Cyan</item>
+    </string-array>
+
+    <string-array name="blockchains">
+        <item>ETH Mainnet</item>
+        <item>Polygon Mainnet</item>
+        <item>Binance Mainnet</item>
+        <item>ETH Goerli</item>
+        <item>Solana Mainnet</item>
+        <item>Solana Testnet</item>
+        <item>Solana Devnet</item>
+    </string-array>
+
+    <string-array name="networkAddress">
+        <item>Eth Address</item>
+        <item>Solana Address</item>
+    </string-array>
+</resources>

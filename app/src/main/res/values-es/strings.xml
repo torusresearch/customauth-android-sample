@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Web3Auth Wallet</string>
+    <string name="login_heading">Seleccione red y Blockchain para iniciar sesión</string>
+    <string name="select_network">Red Web3Auth</string>
+    <string name="select_blockchain">Blockchain</string>
+    <string name="onboarding_header">La bienvenida a bordo</string>
+    <string name="onboarding_sub_header">Seleccione cómo le gustaría continuar</string>
+    <string name="continue_with">Continua con</string>
+    <string name="continue_with_email">Continuar con correo electrónico</string>
+    <string name="email">Email</string>
+    <string name="address">Dirección</string>
+    <string name="welcome">Bienvenidos</string>
+    <string name="invalid_email">Email inválido</string>
+    <string name="account_details">detalles de la cuenta</string>
+    <string name="account_balance">Saldo de la cuenta</string>
+    <string name="transfer_assets">Transferir activos</string>
+    <string name="settings">Ajustes</string>
+    <string name="sign_message_demo">Firmar mensaje (demostración)</string>
+    <string name="message">Mensaje</string>
+    <string name="enter_message">Introduzca su mensaje aquí</string>>
+    <string name="send_to">Enviar a</string>
+    <string name="select_item_transfer">Seleccione el artículo para transferir</string>
+    <string name="sign_message">Firmar mensaje</string>
+    <string name="web3j_connection_error">Error al conectarse a Web3j</string>
+    <string name="amount">Monto</string>
+    <string name="send_all">Envia todo</string>
+    <string name="edit">Editar</string>
+    <string name="max_transaction_fee">Tarifa máxima de transacción</string>
+    <string name="total_cost">Coste total</string>
+    <string name="transfer">Transferir</string>
+    <string name="login">Acceso</string>
+    <string name="onboarding_error">OnBoardingError</string>
+    <string name="transaction_placed">Transacción realizada</string>
+    <string name="transaction_failed">Transacción fallida</string>
+    <string name="transaction_success">Éxito de la transacción</string>
+    <string name="transaction_pending">Transacción pendiente</string>
+    <string name="something_went_wrong">Algo salió mal</string>
+    <string name="try_again">Inténtalo de nuevo ahora</string>
+    <string name="eth_view_account"><u>Ver cuenta en Etherscan</u></string>
+    <string name="poly_view_account"><u>Ver cuenta en Polygonscan</u></string>
+    <string name="sol_view_account"><u>Ver cuenta en Solana Explorer</u></string>
+    <string name="eth_view_transaction_status"><u>Ver el estado de la transacción en Etherscan</u></string>
+    <string name="poly_view_transaction_status"><u>Ver el estado de la transacción en Polygonscan</u></string>
+    <string name="sol_view_transaction_status"><u>Ver el estado de la transacción en Solana Explorer</u></string>
+    <string name="polygon_transaction_status_url">https://mumbai.polygonscan.com/</string>
+    <string name="eth_transaction_status_url">https://etherscan.io/</string>
+    <string name="sol_transaction_status_url">https://explorer.solana.com/</string>
+    <string name="sol_transaction_status_url_testnet">https://explorer.solana.com/</string>
+    <string name="sol_transaction_status_url_devnet">https://explorer.solana.com/</string>
+    <string name="web3Auth_redirection_url">torusapp://org.torusresearch.web3authexample/redirect</string>
+    <string name="sign_failed">Signo fallido</string>
+    <string name="web3Auth_app_name">Web3Auth Sample App</string>
+    <string name="mainnet">Mainnet</string>
+    <string name="sign_success">Firmar con éxito</string>
+    <string name="insufficient_balance">Saldo insuficiente</string>
+    <string name="copy"><u>Copiar</u></string>
+    <string name="confirm_transaction">Confirmar transacción</string>
+    <string name="amount_to_send">cantidad a enviar</string>
+    <string name="confirm">Confirmar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="error">error</string>
+    <string name="denied_camera_permission">Cancelado debido a que falta el permiso de la cámara</string>
+    <string name="max_trans_dialog_heading">Seleccione la tarifa de transacción máxima a pagar</string>
+    <string name="max_trans_dialog_instruction">La red priorizará su transacción cuando pague una tarifa más alta</string>
+    <string name="process_in_30sec">Proceso en ~ 30.0 seconds</string>
+    <string name="process_in_90sec">Proceso en ~ 90.0 seconds</string>
+    <string name="cancelled">Cancelado</string>
+    <string name="process_in">Proceso en ~</string>
+    <string name="seconds">seconds</string>
+    <string name="upto">Hasta </string>
+    <string name="fast">Rápido</string>
+    <string name="slow">Lento</string>
+    <string name="average">Promedio</string>
+    <string name="save">Ahorrar</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="discord">Discord</string>
+    <string name="line">Line</string>
+    <string name="reddit">Reddit</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="wechat">Wechat</string>
+    <string name="kakao">Kakao</string>
+    <string name="github">Github</string>
+    <string name="twitch">Twitch</string>
+    <string name="apple">Apple</string>
+    <string name="usd">USD</string>
+    <string name="inr">INR</string>
+    <string name="invalid_message">Mensaje inválido</string>
+    <string name="loading_balance">Cargando saldo</string>
+    <string name="connect_to_internet">Conexión a Internet no disponible.</string>
+    <string name="enter_amt_to_transfer">Introduce el importe a transferir</string>
+    <string name="enter_address">Ingresa la direccion</string>
+    <string name="invalid_address">Dirección inválida</string>
+    <string name="web3auth_project_id">BASdZxp5tWqPGkzbOU4VMJsnz8QOpJ2pyxf6kZcuxI8AJ1gsOw5MgbW96RpAAx_Kk-5p4rhOopPhCa9kR_9mKpE</string>
+    <string name="ethereum">ETH Mainnet</string>
+    <string name="solana">Solana</string>
+    <string name="sol_testnet">Solana Testnet</string>
+    <string name="sol_devnet">Solana Devnet</string>
+    <string name="user_account_address">address/</string>
+    <string name="transaction">tx/</string>
+    <string name="on">En</string>
+    <string name="off">Apagado</string>
+    <string name="english">English</string>
+    <string name="german">German</string>
+    <string name="spanish">Spanish</string>
+    <string name="japanese">Japanese</string>
+    <string name="korean">Korean</string>
+    <string name="mandarin">Mandarin</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="language">Idioma</string>
+    <string name="dark_mode">Modo oscuro</string>
+
+
+    <string-array name="networks">
+        <item>Mainnet</item>
+        <item>Testnet</item>
+        <item>Cyan</item>
+    </string-array>
+
+    <string-array name="blockchains">
+        <item>ETH Mainnet</item>
+        <item>Polygon Mainnet</item>
+        <item>Binance Mainnet</item>
+        <item>ETH Goerli</item>
+        <item>Solana Mainnet</item>
+        <item>Solana Testnet</item>
+        <item>Solana Devnet</item>
+    </string-array>
+
+    <string-array name="networkAddress">
+        <item>Eth Address</item>
+        <item>Solana Address</item>
+    </string-array>
+</resources>
