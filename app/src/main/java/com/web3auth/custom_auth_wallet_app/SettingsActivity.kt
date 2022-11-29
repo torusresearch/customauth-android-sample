@@ -59,6 +59,7 @@ class SettingsActivity : AppCompatActivity() {
             ArrayAdapter(this, R.layout.item_dropdown, languages)
         spLannuage.setAdapter(langAdapter)
         spLannuage.setOnItemClickListener { _, _, position, _ ->
+            this.applicationContext.web3AuthWalletPreferences[IS_LANGUAGE_CHANGED] = true
             this.applicationContext.web3AuthWalletPreferences[LANGUAGE] =
                 languages[position]
             restartApp()

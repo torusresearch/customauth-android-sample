@@ -36,6 +36,7 @@
     <string name="transaction_success">거래 성공</string>
     <string name="transaction_pending">거래 대기 중</string>
     <string name="something_went_wrong">문제가 발생했습니다</string>
+    <string name="something_went_wrong_try_later">문제가 발생했습니다. 나중에 다시 시도하십시오.</string>
     <string name="try_again">지금 다시 시도하세요</string>
     <string name="eth_view_account"><u>Etherscan에서 계정 보기</u></string>
     <string name="poly_view_account"><u>Polygonscan에서 계정 보기</u></string>

@@ -463,13 +463,18 @@ class TransferAssetsActivity : AppCompatActivity() {
                     intent.getStringExtra(DATA)
                 )
             } else {
-                ethereumViewModel.sendTransaction(
-                    torusLoginResponse?.privateKey.toString(),
-                    receiptAdd,
-                    totalAmount.split(" ")[0].toDouble(),
-                    "",
-                    selectedGasParams
-                )
+                if (this::selectedGasParams.isInitialized) {
+                    ethereumViewModel.sendTransaction(
+                        torusLoginResponse?.privateKey.toString(),
+                        receiptAdd,
+                        totalAmount.split(" ")[0].toDouble(),
+                        "",
+                        selectedGasParams
+                    )
+                } else {
+                    if (::transDialog.isInitialized) transDialog.dismiss()
+                    toast(getString(R.string.something_went_wrong_try_later))
+                }
             }
         }
         tvCancel.setOnClickListener {

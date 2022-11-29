@@ -36,6 +36,7 @@
     <string name="transaction_success">交易成功</string>
     <string name="transaction_pending">待处理交易</string>
     <string name="something_went_wrong">出问题了</string>
+    <string name="something_went_wrong_try_later">出问题了。稍后再试。</string>
     <string name="try_again">现在再试一次</string>
     <string name="eth_view_account"><u>查看 Etherscan 上的帐户</u></string>
     <string name="poly_view_account"><u>在 Polygonscan 上查看帐户</u></string>

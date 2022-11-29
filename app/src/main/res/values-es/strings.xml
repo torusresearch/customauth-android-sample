@@ -36,6 +36,7 @@
     <string name="transaction_success">Éxito de la transacción</string>
     <string name="transaction_pending">Transacción pendiente</string>
     <string name="something_went_wrong">Algo salió mal</string>
+    <string name="something_went_wrong_try_later">Algo salió mal. Vuelva a intentarlo más tarde.</string>
     <string name="try_again">Inténtalo de nuevo ahora</string>
     <string name="eth_view_account"><u>Ver cuenta en Etherscan</u></string>
     <string name="poly_view_account"><u>Ver cuenta en Polygonscan</u></string>
