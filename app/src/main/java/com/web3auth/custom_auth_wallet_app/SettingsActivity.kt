@@ -18,9 +18,9 @@ class SettingsActivity : AppCompatActivity() {
     private lateinit var blockChain: String
     private lateinit var network: String
     private lateinit var language: String
-    private lateinit var switchDarkMode: SwitchCompat
-    private lateinit var tvDarkModeStatus: AppCompatTextView
-    private lateinit var spLannuage: AutoCompleteTextView
+    private lateinit var theme: String
+    private lateinit var spLanguage: AutoCompleteTextView
+    private lateinit var spTheme: AutoCompleteTextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +36,10 @@ class SettingsActivity : AppCompatActivity() {
                 .toString()
         language = this.applicationContext.web3AuthWalletPreferences.getString(LANGUAGE, "English")
             .toString()
+        theme = this.applicationContext.web3AuthWalletPreferences.getString(THEME, "Dark")
+            .toString()
         setData()
         setUpSpinner()
-        setUpSwitch()
     }
 
     private fun setUpSpinner() {
@@ -53,46 +54,41 @@ class SettingsActivity : AppCompatActivity() {
             tvNetwork.text = blockchains[position]
         }
 
-        spLannuage.setText(language)
+        spLanguage.setText(language)
         val languages = resources.getStringArray(R.array.languages)
         val langAdapter: ArrayAdapter<String> =
             ArrayAdapter(this, R.layout.item_dropdown, languages)
-        spLannuage.setAdapter(langAdapter)
-        spLannuage.setOnItemClickListener { _, _, position, _ ->
+        spLanguage.setAdapter(langAdapter)
+        spLanguage.setOnItemClickListener { _, _, position, _ ->
             this.applicationContext.web3AuthWalletPreferences[IS_LANGUAGE_CHANGED] = true
             this.applicationContext.web3AuthWalletPreferences[LANGUAGE] =
                 languages[position]
             restartApp()
         }
+
+        spTheme.setText(theme)
+        val themes = resources.getStringArray(R.array.themes)
+        val themeAdapter: ArrayAdapter<String> =
+            ArrayAdapter(this, R.layout.item_dropdown, themes)
+        spTheme.setAdapter(themeAdapter)
+        spTheme.setOnItemClickListener { _, _, position, _ ->
+            this.applicationContext.web3AuthWalletPreferences[THEME] =
+                themes[position]
+            when (themes[position]) {
+                "Light" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                "Dark" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                "System" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+            }
+        }
     }
 
     private fun setData() {
         spBlockChain = findViewById(R.id.spBlockChain)
-        spLannuage = findViewById(R.id.spLanguage)
+        spLanguage = findViewById(R.id.spLanguage)
+        spTheme = findViewById(R.id.spTheme)
         tvNetwork = findViewById(R.id.tvNetwork)
-        switchDarkMode = findViewById(R.id.switchDarkMode)
-        tvDarkModeStatus = findViewById(R.id.tvDarkModeStatus)
         findViewById<AppCompatImageView>(R.id.ivBack).setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
-        }
-        val darkModeStatus = this.applicationContext.web3AuthWalletPreferences.get(ISDARKMODE, true)
-        switchDarkMode.isChecked = darkModeStatus
-        tvDarkModeStatus.text =
-            if (darkModeStatus) getString(R.string.on) else getString(R.string.off)
-        tvNetwork.text = blockChain
-    }
-
-    private fun setUpSwitch() {
-        switchDarkMode.setOnCheckedChangeListener { _, isChecked ->
-            if (isChecked) {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                tvDarkModeStatus.text = getString(R.string.on)
-                this.applicationContext.web3AuthWalletPreferences[ISDARKMODE] = true
-            } else {
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                tvDarkModeStatus.text = getString(R.string.off)
-                this.applicationContext.web3AuthWalletPreferences[ISDARKMODE] = false
-            }
         }
     }
 
@@ -102,6 +98,4 @@ class SettingsActivity : AppCompatActivity() {
         startActivity(intent)
         Runtime.getRuntime().exit(0)
     }
-
-
 }

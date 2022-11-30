@@ -128,47 +128,36 @@
             </com.google.android.material.textfield.TextInputLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDarkMode"
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/themeList"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            app:layout_constraintTop_toBottomOf="@+id/clBlockChain"
+            android:layout_marginTop="20dp"
+            android:hint="@string/theme"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/dark_mode"
-            android:textSize="18dp"
-            android:textColor="@color/black" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDarkModeStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
             app:layout_constraintTop_toBottomOf="@+id/clBlockChain"
-            app:layout_constraintEnd_toStartOf="@+id/switchDarkMode"
-            android:text="On"
-            android:textSize="18dp"
-            android:layout_marginEnd="20dp"
-            android:textColor="@color/black" />
+            app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/switchDarkMode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            app:layout_constraintTop_toBottomOf="@+id/clBlockChain"
-            app:layout_constraintEnd_toEndOf="parent" />
+            <AutoCompleteTextView
+                android:id="@+id/spTheme"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Light"
+                android:inputType="none" />
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/languageList"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
             android:hint="@string/language"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/switchDarkMode"
+            app:layout_constraintTop_toBottomOf="@+id/themeList"
             app:layout_constraintEnd_toEndOf="parent">
 
             <AutoCompleteTextView

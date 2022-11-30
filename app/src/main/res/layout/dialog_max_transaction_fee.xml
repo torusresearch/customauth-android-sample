@@ -69,7 +69,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/fast"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvFastEth"
@@ -120,7 +120,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/average"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvAvgEth"
@@ -171,7 +171,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="@string/slow"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textSize="16sp" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSlowEth"

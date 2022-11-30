@@ -111,7 +111,7 @@
     <string name="mandarin">Mandarin</string>
     <string name="logout">登出</string>
     <string name="language">语</string>
-    <string name="dark_mode">深色模式</string>
+    <string name="theme">主题</string>
 
     <string-array name="networks">
         <item>Mainnet</item>

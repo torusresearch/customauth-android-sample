@@ -26,7 +26,7 @@
     <string name="amount">Menge</string>
     <string name="send_all">Sende alle</string>
     <string name="edit">Bearbeiten</string>
-    <string name="max_transaction_fee">Maximale Transaktionsgebühr</string>
+    <string name="max_transaction_fee">Maximale Transaktion Fee</string>
     <string name="total_cost">Gesamtkosten</string>
     <string name="transfer">Transfer</string>
     <string name="login">Anmeldung</string>
@@ -111,7 +111,7 @@
     <string name="mandarin">Mandarin</string>
     <string name="logout">Ausloggen</string>
     <string name="language">Ausloggen</string>
-    <string name="dark_mode">Dunkler Modus</string>
+    <string name="theme">Thema</string>
 
     <string-array name="networks">
         <item>Mainnet</item>

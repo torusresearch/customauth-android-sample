@@ -15,12 +15,12 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val isDarkMode =
-            this.applicationContext.web3AuthWalletPreferences.getBoolean(ISDARKMODE, true)
+        val theme =
+            this.applicationContext.web3AuthWalletPreferences.getString(THEME, "Dark")
         val isLangChanged = this.applicationContext.web3AuthWalletPreferences.get(
             IS_LANGUAGE_CHANGED, false
         )
-        setTheme(isDarkMode)
+        setTheme(theme)
         setContentView(R.layout.activity_splash)
         supportActionBar?.hide()
         val locale = Web3AuthUtils.getSystemLocale()
@@ -52,11 +52,11 @@ class SplashActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun setTheme(isDarkMode: Boolean) {
-        if (isDarkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+    private fun setTheme(theme: String?) {
+        when (theme) {
+            "Light" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            "Dark" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            "System" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
         }
     }
 

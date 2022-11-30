@@ -6,10 +6,12 @@ import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.Transformation
+import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.web3auth.custom_auth_wallet_app.api.models.LoginVerifier
 import com.web3auth.custom_auth_wallet_app.utils.*
 import org.torusresearch.customauth.CustomAuth
@@ -28,6 +30,8 @@ class OnBoardingActivity : AppCompatActivity() {
     private var torusSdk: CustomAuth? = null
     private val selectedLoginVerifier: LoginVerifier? = null
     private var domain = "torus-test.auth0.com"
+    private lateinit var clBody: ConstraintLayout
+    private lateinit var progressBar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +43,8 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     private fun setUpListeners() {
+        clBody = findViewById(R.id.clBody)
+        progressBar = findViewById(R.id.progressBar)
         val rlSocialLogins = findViewById<RelativeLayout>(R.id.rlSocialLogins)
         ivFullLogin = findViewById(R.id.ivFullLogin)
         ivFullLogin.setOnClickListener {
@@ -183,6 +189,8 @@ class OnBoardingActivity : AppCompatActivity() {
             builder.setVerifierIdField(loginVerifier.verifierIdField)
             builder.setVerifierIdCaseSensitive(loginVerifier.isVerfierIdCaseSensitive)
         }
+        clBody.hide()
+        progressBar.show()
         val torusLoginResponseCf: CompletableFuture<TorusLoginResponse>? = if (builder == null) {
             torusSdk?.triggerLogin(
                 SubVerifierDetails(
@@ -206,6 +214,8 @@ class OnBoardingActivity : AppCompatActivity() {
         }
 
         torusLoginResponseCf?.whenComplete { torusLoginResponse: TorusLoginResponse, error: Throwable? ->
+            clBody.show()
+            progressBar.hide()
             if (error != null) {
                 Log.d(
                     getString(R.string.onboarding_error),

@@ -44,6 +44,7 @@ class TransferAssetsActivity : AppCompatActivity() {
     private lateinit var gasApiResponse: GasApiResponse
     private lateinit var tvEth: AppCompatTextView
     private lateinit var tvUSD: AppCompatTextView
+    private lateinit var tvMaxFeeUnit: AppCompatTextView
     private lateinit var tvTotalAmount: AppCompatTextView
     private lateinit var tvCostInETH: AppCompatTextView
     private lateinit var flTransaction: FrameLayout
@@ -101,6 +102,7 @@ class TransferAssetsActivity : AppCompatActivity() {
         etMaxTransFee = findViewById(R.id.etMaxTransFee)
         tvEth = findViewById(R.id.tvEth)
         tvUSD = findViewById(R.id.tvUSD)
+        tvMaxFeeUnit = findViewById(R.id.tvMaxFeeUnit)
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvCostInETH = findViewById(R.id.tvCostInETH)
         tvEdit = findViewById(R.id.tvEditTransFee)
@@ -111,6 +113,7 @@ class TransferAssetsActivity : AppCompatActivity() {
         etBlockChainAdd.setText(blockChain.let { Web3AuthUtils.getBlockChainName(it) })
         etBlockChain.setText(blockChain)
         tvEth.text = Web3AuthUtils.getCurrency(blockChain)
+        tvMaxFeeUnit.text = Web3AuthUtils.getCurrency(blockChain)
 
         if (blockChain.contains(getString(R.string.solana))) {
             findViewById<AppCompatTextView>(R.id.tvTransactionFee).hide()
@@ -361,7 +364,9 @@ class TransferAssetsActivity : AppCompatActivity() {
             rbSlow.isChecked = false
             gasFee = ethGasAPIResponse.fastest
             processTime = ethGasAPIResponse.fastestWait
-            gasApiResponse.high?.let { it1 -> setGasParams(it1) }
+            if (this::gasApiResponse.isInitialized) {
+                gasApiResponse.high?.let { it1 -> setGasParams(it1) }
+            }
             setMaxTransFee(ethGasAPIResponse.fastest)
             dialog.dismiss()
         }
@@ -371,7 +376,9 @@ class TransferAssetsActivity : AppCompatActivity() {
             rbSlow.isChecked = false
             gasFee = ethGasAPIResponse.fast
             processTime = ethGasAPIResponse.fastWait
-            gasApiResponse.medium?.let { it1 -> setGasParams(it1) }
+            if (this::gasApiResponse.isInitialized) {
+                gasApiResponse.medium?.let { it1 -> setGasParams(it1) }
+            }
             setMaxTransFee(ethGasAPIResponse.fast)
             dialog.dismiss()
         }
@@ -381,9 +388,23 @@ class TransferAssetsActivity : AppCompatActivity() {
             rbFast.isChecked = false
             gasFee = ethGasAPIResponse.average
             processTime = ethGasAPIResponse.avgWait
-            gasApiResponse.low?.let { it1 -> setGasParams(it1) }
+            if (this::gasApiResponse.isInitialized) {
+                gasApiResponse.low?.let { it1 -> setGasParams(it1) }
+            }
             setMaxTransFee(ethGasAPIResponse.average)
             dialog.dismiss()
+        }
+
+        rbFast.setOnClickListener {
+            clFast.performClick()
+        }
+
+        rbSlow.setOnClickListener {
+            clSlow.performClick()
+        }
+
+        rbAvg.setOnClickListener {
+            clAvg.performClick()
         }
 
         btnSave.setOnClickListener {

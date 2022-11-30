@@ -111,7 +111,7 @@
     <string name="mandarin">Mandarin</string>
     <string name="logout">로그 아웃</string>
     <string name="language">언어</string>
-    <string name="dark_mode">다크 모드</string>
+    <string name="theme">주제</string>
 
     <string-array name="networks">
         <item>Mainnet</item>
