@@ -79,6 +79,7 @@ class SettingsActivity : AppCompatActivity() {
                 "Dark" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 "System" -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
             }
+            finish()
         }
     }
 
