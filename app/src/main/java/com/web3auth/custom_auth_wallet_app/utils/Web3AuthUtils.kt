@@ -6,6 +6,7 @@ import android.net.NetworkCapabilities
 import android.net.Uri
 import android.os.Build
 import android.os.LocaleList
+import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import com.web3auth.custom_auth_wallet_app.R
 import org.web3j.crypto.ECKeyPair
@@ -152,13 +153,21 @@ object Web3AuthUtils {
     fun openCustomTabs(context: Context, url: String) {
         val defaultBrowser = context.getDefaultBrowser()
         val customTabsBrowsers = context.getCustomTabsBrowsers()
+        val otherParams = CustomTabColorSchemeParams.Builder()
+            .setToolbarColor(context.getColor(R.color.background_color))
+            .setNavigationBarColor(context.getColor(R.color.background_color))
+            .build()
 
         if (customTabsBrowsers.contains(defaultBrowser)) {
-            val customTabs = CustomTabsIntent.Builder().build()
+            val customTabs = CustomTabsIntent.Builder()
+                .setDefaultColorSchemeParams(otherParams)
+                .build()
             customTabs.intent.setPackage(defaultBrowser)
             customTabs.launchUrl(context, Uri.parse(url))
         } else if (customTabsBrowsers.isNotEmpty()) {
-            val customTabs = CustomTabsIntent.Builder().build()
+            val customTabs = CustomTabsIntent.Builder()
+                .setDefaultColorSchemeParams(otherParams)
+                .build()
             customTabs.intent.setPackage(customTabsBrowsers[0])
             customTabs.launchUrl(context, Uri.parse(url))
         }

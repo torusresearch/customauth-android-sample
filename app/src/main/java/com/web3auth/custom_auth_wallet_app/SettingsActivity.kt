@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.appcompat.widget.SwitchCompat
 import com.web3auth.custom_auth_wallet_app.utils.*
 
 class SettingsActivity : AppCompatActivity() {

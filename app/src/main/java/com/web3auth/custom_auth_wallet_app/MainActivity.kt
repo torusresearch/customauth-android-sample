@@ -6,7 +6,6 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -27,7 +26,6 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.EncodeHintType
 import com.google.zxing.MultiFormatWriter
-import com.google.zxing.qrcode.QRCodeWriter
 import com.journeyapps.barcodescanner.BarcodeEncoder
 import com.web3auth.custom_auth_wallet_app.utils.*
 import com.web3auth.custom_auth_wallet_app.viewmodel.EthereumViewModel
