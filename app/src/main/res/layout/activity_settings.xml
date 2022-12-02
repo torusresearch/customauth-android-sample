@@ -49,7 +49,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/activity_bg_color"
+        android:background="@color/background_color"
         android:paddingStart="30dp"
         android:paddingTop="20dp"
         android:paddingEnd="30dp"
