@@ -4,7 +4,7 @@
     <string name="login_heading">ログインするネットワークとブロックチェーンを選択</string>
     <string name="select_network">Web3Auth ネットワーク</string>
     <string name="select_blockchain">ブロックチェーン</string>
-    <string name="onboarding_header">ご乗車（搭乗）ありがとうございます</string>
+    <string name="onboarding_header">ここにようこそ</string>
     <string name="onboarding_sub_header">続行する方法を選択してください</string>
     <string name="continue_with">C続ける</string>
     <string name="continue_with_email">メールで続行</string>

@@ -88,6 +88,7 @@ class SettingsActivity : AppCompatActivity() {
         spLanguage = findViewById(R.id.spLanguage)
         spTheme = findViewById(R.id.spTheme)
         tvNetwork = findViewById(R.id.tvNetwork)
+        tvNetwork.text = blockChain
         findViewById<AppCompatImageView>(R.id.ivBack).setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }

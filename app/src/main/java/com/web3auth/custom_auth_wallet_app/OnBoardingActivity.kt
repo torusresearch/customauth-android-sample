@@ -261,7 +261,7 @@ class OnBoardingActivity : AppCompatActivity() {
 
         a.duration = (targetHeight / v.context.resources.displayMetrics.density).toInt().toLong()
         v.startAnimation(a)
-        ivFullLogin.setImageDrawable(getDrawable(R.drawable.ic_collapse_arrow))
+        ivFullLogin.animate().rotationBy(180F).setDuration(300).start()
     }
 
     private fun collapse(v: View) {
@@ -283,6 +283,6 @@ class OnBoardingActivity : AppCompatActivity() {
         }
         a.duration = (initialHeight / v.context.resources.displayMetrics.density).toInt().toLong()
         v.startAnimation(a)
-        ivFullLogin.setImageDrawable(getDrawable(R.drawable.ic_expand_arrow))
+        ivFullLogin.animate().rotationBy(180F).setDuration(300).start()
     }
 }

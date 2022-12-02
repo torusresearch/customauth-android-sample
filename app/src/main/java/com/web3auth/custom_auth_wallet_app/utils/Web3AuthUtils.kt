@@ -103,23 +103,13 @@ object Web3AuthUtils {
     private fun getEtherInGwei() = 10.0.pow(10)
 
     fun toWeiEther(ethBalance: Double): Double {
-        var decimalWei = ethBalance
+        val decimalWei = ethBalance
         return decimalWei / getEtherInWei()
     }
 
     private fun toGwieEther(balance: BigDecimal): Double {
-        var decimalWei = balance.toDouble()
+        val decimalWei = balance.toDouble()
         return decimalWei / getEtherInGwei()
-    }
-
-    fun getPrivateKey(sessionId: String): String {
-        val derivedECKeyPair: ECKeyPair = ECKeyPair.create(BigInteger(sessionId, 16))
-        return derivedECKeyPair.privateKey.toString(16)
-    }
-
-    fun getPublicKey(sessionId: String): String {
-        val derivedECKeyPair: ECKeyPair = ECKeyPair.create(BigInteger(sessionId, 16))
-        return derivedECKeyPair.publicKey.toString(16)
     }
 
     fun isValidEthAddress(address: String): Boolean {

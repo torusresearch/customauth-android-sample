@@ -30,12 +30,11 @@ class SolanaViewModel : ViewModel() {
     var balance = MutableLiveData(0L)
     var signature = SingleLiveEvent<String?>()
     var sendTransactionResult = MutableLiveData(Pair(false, ""))
+    var error: MutableLiveData<Boolean> = MutableLiveData(false)
 
     fun setNetwork(cluster: Cluster, ed25519Key: String) {
         client = RpcClient(cluster)
         account = Account(ed25519Key.toByteArray(StandardCharsets.UTF_8))
-        val pubKey = account.publicKey.toBase58()
-        val secretKey = Base58.encode(account.secretKey)
     }
 
     fun getPublicAddress() {
@@ -43,6 +42,7 @@ class SolanaViewModel : ViewModel() {
             publicAddress.postValue(account.publicKey.toBase58())
             privateKey.postValue(Base58.encode(account.secretKey))
         } catch (ex: Exception) {
+            error.value = true
             ex.printStackTrace()
         }
     }
