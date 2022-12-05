@@ -50,7 +50,7 @@ class EthereumViewModel : ViewModel() {
             val clientVersion: Web3ClientVersion = web3.web3ClientVersion().sendAsync().get()
             isWeb3Configured.value = !clientVersion.hasError()
         } catch (e: Exception) {
-            error.value = true
+            error.postValue(true)
             e.printStackTrace()
         }
     }
@@ -79,7 +79,6 @@ class EthereumViewModel : ViewModel() {
                     .get()
                 balance.postValue(web3Balance.balance.toDouble())
             } catch (ex: Exception) {
-                error.value = true
                 ex.printStackTrace()
             }
         }
@@ -161,7 +160,7 @@ class EthereumViewModel : ViewModel() {
                     transactionHash.postValue(Pair(true, ethSendTransaction.transactionHash))
                 }
             } catch (ex: Exception) {
-                error.value = true
+                error.postValue(true)
                 ex.printStackTrace()
             }
         }
