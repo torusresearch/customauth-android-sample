@@ -3,7 +3,6 @@ package com.web3auth.custom_auth_wallet_app
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.Transformation
@@ -13,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.PackageManagerCompat.LOG_TAG
 import com.web3auth.custom_auth_wallet_app.api.models.LoginVerifier
 import com.web3auth.custom_auth_wallet_app.utils.*
 import org.torusresearch.customauth.CustomAuth
