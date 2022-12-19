@@ -27,24 +27,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".OnBoardingActivity" />
         <activity
-            android:name="org.torusresearch.customauth.activity.StartUpActivity"
-            android:launchMode="singleTop"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+            android:name=".OnBoardingActivity"
+            android:exported="true"></activity>
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="${torusRedirectHost}"
-                    android:pathPattern="/*"
-                    android:pathPrefix="${torusRedirectPathPrefix}"
-                    android:scheme="${torusRedirectScheme}" />
-            </intent-filter>
-        </activity>
         <activity android:name=".MainActivity"></activity>
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"

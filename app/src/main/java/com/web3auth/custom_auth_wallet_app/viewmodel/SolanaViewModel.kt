@@ -18,6 +18,7 @@ import org.p2p.solanaj.rpc.Cluster
 import org.p2p.solanaj.rpc.RpcClient
 import org.p2p.solanaj.rpc.RpcException
 import java.math.BigInteger
+import java.nio.charset.StandardCharsets
 
 class SolanaViewModel : ViewModel() {
 
@@ -33,7 +34,7 @@ class SolanaViewModel : ViewModel() {
 
     fun setNetwork(cluster: Cluster, ed25519Key: String) {
         client = RpcClient(cluster)
-        account = Account(BigInteger(ed25519Key, 16).toByteArray())
+        account = Account(ed25519Key.toByteArray(StandardCharsets.UTF_8))
     }
 
     fun getPublicAddress() {
