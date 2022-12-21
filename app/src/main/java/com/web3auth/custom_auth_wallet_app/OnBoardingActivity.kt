@@ -29,7 +29,6 @@ class OnBoardingActivity : AppCompatActivity() {
     private lateinit var selectedNetwork: String
     private lateinit var ivFullLogin: AppCompatImageView
     private var torusSdk: CustomAuth? = null
-    private val selectedLoginVerifier: LoginVerifier? = null
     private var domain = "torus-test.auth0.com"
     private lateinit var clBody: ConstraintLayout
     private lateinit var progressBar: ProgressBar
@@ -109,7 +108,7 @@ class OnBoardingActivity : AppCompatActivity() {
             signIn(
                 LoginVerifier(
                     "Line",
-                    LoginType.APPLE,
+                    LoginType.LINE,
                     "WN8bOmXKNRH1Gs8k475glfBP5gDZr9H1",
                     "torus-auth0-line-lrc",
                     domain
@@ -185,7 +184,7 @@ class OnBoardingActivity : AppCompatActivity() {
         this.applicationContext.web3AuthWalletPreferences[loginType] = loginType
 
         var builder: Auth0ClientOptionsBuilder? = null
-        if (this.selectedLoginVerifier?.domain != null) {
+        if (loginVerifier.domain != null) {
             builder = Auth0ClientOptionsBuilder(loginVerifier.domain)
             builder.setVerifierIdField(loginVerifier.verifierIdField)
             builder.setVerifierIdCaseSensitive(loginVerifier.isVerfierIdCaseSensitive)
