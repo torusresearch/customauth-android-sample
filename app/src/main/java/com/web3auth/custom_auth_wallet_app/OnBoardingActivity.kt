@@ -29,7 +29,6 @@ class OnBoardingActivity : AppCompatActivity() {
     private lateinit var selectedNetwork: String
     private lateinit var ivFullLogin: AppCompatImageView
     private var torusSdk: CustomAuth? = null
-    private var domain = "torus-test.auth0.com"
     private lateinit var clBody: ConstraintLayout
     private lateinit var progressBar: ProgressBar
 
@@ -62,9 +61,9 @@ class OnBoardingActivity : AppCompatActivity() {
                 LoginVerifier(
                     "Email Password",
                     LoginType.EMAIL_PASSWORD,
-                    "sqKRBVSdwa4WLkaq419U7Bamlh5vK1H7",
-                    "torus-auth0-email-password",
-                    domain
+                    "BDIXq6ryHwTGwN11LFo4kwiMGY50zPip",
+                    "torus-auth0-email-passwordless",
+                    Web3AuthUtils.getDomain(selectedNetwork)
                 ),
                 ""
             )
@@ -74,15 +73,19 @@ class OnBoardingActivity : AppCompatActivity() {
                 LoginVerifier(
                     "Google",
                     LoginType.GOOGLE,
-                    "221898609709-obfn3p63741l5333093430j3qeiinaa8.apps.googleusercontent.com",
-                    "google-lrc"
+                    Web3AuthUtils.getClientId(selectedNetwork, LoginType.GOOGLE),
+                    Web3AuthUtils.getVerifier(selectedNetwork, LoginType.GOOGLE)
                 ),
                 getString(R.string.google)
             )
         }
         findViewById<AppCompatImageView>(R.id.ivFacebook).setOnClickListener {
             signIn(
-                LoginVerifier("Facebook", LoginType.FACEBOOK, "617201755556395", "facebook-lrc"),
+                LoginVerifier(
+                    "Facebook", LoginType.FACEBOOK,
+                    Web3AuthUtils.getClientId(selectedNetwork, LoginType.FACEBOOK),
+                    Web3AuthUtils.getVerifier(selectedNetwork, LoginType.FACEBOOK)
+                ),
                 getString(R.string.facebook)
             )
         }
@@ -91,16 +94,20 @@ class OnBoardingActivity : AppCompatActivity() {
                 LoginVerifier(
                     "Twitter",
                     LoginType.TWITTER,
-                    "A7H8kkcmyFRlusJQ9dZiqBLraG2yWIsO",
-                    "torus-auth0-twitter-lrc",
-                    domain
+                    Web3AuthUtils.getClientId(selectedNetwork, LoginType.TWITTER),
+                    Web3AuthUtils.getVerifier(selectedNetwork, LoginType.TWITTER),
+                    Web3AuthUtils.getDomain(selectedNetwork)
                 ),
                 getString(R.string.twitter)
             )
         }
         findViewById<AppCompatImageView>(R.id.ivDiscord).setOnClickListener {
             signIn(
-                LoginVerifier("Discord", LoginType.DISCORD, "682533837464666198", "discord-lrc"),
+                LoginVerifier(
+                    "Discord", LoginType.DISCORD,
+                    Web3AuthUtils.getClientId(selectedNetwork, LoginType.DISCORD),
+                    Web3AuthUtils.getVerifier(selectedNetwork, LoginType.DISCORD)
+                ),
                 getString(R.string.discord)
             )
         }
@@ -109,9 +116,9 @@ class OnBoardingActivity : AppCompatActivity() {
                 LoginVerifier(
                     "Line",
                     LoginType.LINE,
-                    "WN8bOmXKNRH1Gs8k475glfBP5gDZr9H1",
-                    "torus-auth0-line-lrc",
-                    domain
+                    Web3AuthUtils.getClientId(selectedNetwork, LoginType.LINE),
+                    Web3AuthUtils.getVerifier(selectedNetwork, LoginType.LINE),
+                    Web3AuthUtils.getDomain(selectedNetwork)
                 ),
                 getString(R.string.line)
             )
@@ -121,9 +128,9 @@ class OnBoardingActivity : AppCompatActivity() {
                 LoginVerifier(
                     "Apple",
                     LoginType.APPLE,
-                    "m1Q0gvDfOyZsJCZ3cucSQEe9XMvl9d9L",
-                    "torus-auth0-apple-lrc",
-                    domain
+                    Web3AuthUtils.getClientId(selectedNetwork, LoginType.APPLE),
+                    Web3AuthUtils.getVerifier(selectedNetwork, LoginType.APPLE),
+                    Web3AuthUtils.getDomain(selectedNetwork)
                 ),
                 getString(R.string.apple)
             )
@@ -133,9 +140,9 @@ class OnBoardingActivity : AppCompatActivity() {
                 LoginVerifier(
                     "LinkedIn",
                     LoginType.LINKEDIN,
-                    "59YxSgx79Vl3Wi7tQUBqQTRTxWroTuoc",
-                    "torus-auth0-linkedin-lrc",
-                    domain
+                    Web3AuthUtils.getClientId(selectedNetwork, LoginType.LINKEDIN),
+                    Web3AuthUtils.getVerifier(selectedNetwork, LoginType.LINKEDIN),
+                    Web3AuthUtils.getDomain(selectedNetwork)
                 ),
                 getString(R.string.linkedin)
             )
@@ -145,22 +152,11 @@ class OnBoardingActivity : AppCompatActivity() {
                 LoginVerifier(
                     "Github",
                     LoginType.GITHUB,
-                    "PC2a4tfNRvXbT48t89J5am0oFM21Nxff",
-                    "torus-auth0-github-lrc",
-                    domain
+                    Web3AuthUtils.getClientId(selectedNetwork, LoginType.GITHUB),
+                    Web3AuthUtils.getVerifier(selectedNetwork, LoginType.GITHUB),
+                    Web3AuthUtils.getDomain(selectedNetwork)
                 ),
                 getString(R.string.github)
-            )
-        }
-        findViewById<AppCompatImageView>(R.id.ivTwitch).setOnClickListener {
-            signIn(
-                LoginVerifier(
-                    "Twitch",
-                    LoginType.TWITCH,
-                    "f5and8beke76mzutmics0zu4gw10dj",
-                    "twitch-lrc"
-                ),
-                getString(R.string.twitch)
             )
         }
     }
@@ -169,11 +165,12 @@ class OnBoardingActivity : AppCompatActivity() {
         selectedNetwork =
             this.applicationContext.web3AuthWalletPreferences.getString(NETWORK, "")
                 .toString()
+        println("Selected N/w: $selectedNetwork")
 
         val args = CustomAuthArgs(
-            "https://scripts.toruswallet.io/redirect.html",
+            Web3AuthUtils.getRedirectUri(selectedNetwork), //"redirect-uri"
             NetworkUtils.getTorusNetwork(selectedNetwork),
-            "torusapp://org.torusresearch.customauthandroid/redirect"
+            Web3AuthUtils.getBrowserRedirectUri(selectedNetwork) //browser-redirect-uri
         )
 
         // Initialize CustomAuth

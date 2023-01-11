@@ -202,6 +202,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:layout_toRightOf="@+id/ivGithub"
                 android:background="@drawable/bg_circular"

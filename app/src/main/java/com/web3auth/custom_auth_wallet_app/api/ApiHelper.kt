@@ -11,7 +11,7 @@ object ApiHelper {
 
     private const val baseUrl = "https://api.tor.us"
     private const val ethUrl = "https://ethgasstation.info"
-    private const val mockGasUrl = "https://mock-gas-server.herokuapp.com"
+    private const val mockGasUrl = "https://gas-api.metaswap.codefi.network"
 
     private val okHttpClient = OkHttpClient().newBuilder()
         .addInterceptor(HttpLoggingInterceptor().apply {

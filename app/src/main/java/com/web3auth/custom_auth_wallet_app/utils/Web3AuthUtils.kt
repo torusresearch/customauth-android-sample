@@ -9,9 +9,8 @@ import android.os.LocaleList
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import com.web3auth.custom_auth_wallet_app.R
-import org.web3j.crypto.ECKeyPair
+import org.torusresearch.customauth.types.LoginType
 import java.math.BigDecimal
-import java.math.BigInteger
 import java.util.*
 import kotlin.math.pow
 
@@ -66,6 +65,7 @@ object Web3AuthUtils {
         return when (blockChain) {
             "ETH Mainnet" -> context.getString(R.string.eth_view_account)
             "ETH Goerli" -> context.getString(R.string.eth_view_account)
+            "Binance Mainnet" -> context.getString(R.string.bnb_view_transaction_status)
             "Solana Mainnet" -> context.getString(R.string.sol_view_account)
             "Solana Testnet" -> context.getString(R.string.sol_view_account)
             "Solana Devnet" -> context.getString(R.string.sol_view_account)
@@ -78,6 +78,7 @@ object Web3AuthUtils {
         return when (blockChain) {
             "ETH Mainnet" -> context.getString(R.string.eth_view_transaction_status)
             "ETH Goerli" -> context.getString(R.string.eth_view_transaction_status)
+            "Binance Mainnet" -> context.getString(R.string.bnb_view_transaction_status)
             "Solana Mainnet" -> context.getString(R.string.sol_view_transaction_status)
             "Solana Testnet" -> context.getString(R.string.sol_view_transaction_status)
             "Solana Devnet" -> context.getString(R.string.sol_view_transaction_status)
@@ -90,7 +91,7 @@ object Web3AuthUtils {
         return when (blockChain) {
             "ETH Mainnet" -> context.getString(R.string.eth_transaction_status_url)
             "Polygon Mainnet" -> context.getString(R.string.polygon_transaction_status_url)
-            "Binance Mainnet" -> "BNB"
+            "Binance Mainnet" -> "https://bscscan.com/"
             "ETH Goerli" -> context.getString(R.string.eth_transaction_status_url)
             "Solana Mainnet" -> context.getString(R.string.sol_transaction_status_url)
             "Solana Testnet" -> context.getString(R.string.sol_transaction_status_url_testnet)
@@ -187,6 +188,104 @@ object Web3AuthUtils {
             context.getString(R.string.reddit) -> R.drawable.ic_reddit
             context.getString(R.string.twitch) -> R.drawable.ic_twitch_inactive
             else -> R.drawable.iv_google
+        }
+    }
+
+    private fun getMainnetClientId(loginType: LoginType): String {
+        return when (loginType) {
+            LoginType.GOOGLE -> "876733105116-i0hj3s53qiio5k95prpfmj0hp0gmgtor.apps.googleusercontent.com"
+            LoginType.FACEBOOK -> "2554219104599979"
+            LoginType.TWITTER -> "OPUyrj5G82ZDL1FU1J5Ve3OvQzAsQxy9"
+            LoginType.DISCORD -> "630308572013527060"
+            LoginType.LINE -> "a4jD59wm3e5SpXyfH06HIz63iZRjWxan"
+            LoginType.APPLE -> "FURCtS8ni75fvwE0nftxSV39u7JaX7X6"
+            LoginType.LINKEDIN -> "hgmrH20a7SE1Cpuha1Ke6RlHTdnNwp8a"
+            LoginType.GITHUB -> "bbDQ4eCvCrjY2BGR6OES8qjbMgQDTVHz"
+            LoginType.TWITCH -> "tfppratfiloo53g1x133ofa4rc29px"
+            else -> "876733105116-i0hj3s53qiio5k95prpfmj0hp0gmgtor.apps.googleusercontent.com"
+        }
+    }
+
+    private fun getTestnetClientId(loginType: LoginType): String {
+        return when (loginType) {
+            LoginType.GOOGLE -> "221898609709-obfn3p63741l5333093430j3qeiinaa8.apps.googleusercontent.com"
+            LoginType.FACEBOOK -> "617201755556395"
+            LoginType.TWITTER -> "f5and8beke76mzutmics0zu4gw10dj"
+            LoginType.DISCORD -> "682533837464666198"
+            LoginType.LINE -> "WN8bOmXKNRH1Gs8k475glfBP5gDZr9H1"
+            LoginType.APPLE -> "m1Q0gvDfOyZsJCZ3cucSQEe9XMvl9d9L"
+            LoginType.LINKEDIN -> "59YxSgx79Vl3Wi7tQUBqQTRTxWroTuoc"
+            LoginType.GITHUB -> "PC2a4tfNRvXbT48t89J5am0oFM21Nxff"
+            LoginType.TWITCH -> "f5and8beke76mzutmics0zu4gw10dj"
+            else -> "221898609709-obfn3p63741l5333093430j3qeiinaa8.apps.googleusercontent.com"
+        }
+    }
+
+    private fun getMainnetVerfier(loginType: LoginType): String {
+        return when (loginType) {
+            LoginType.GOOGLE -> "google"
+            LoginType.FACEBOOK -> "facebook"
+            LoginType.TWITTER -> "twitter"
+            LoginType.DISCORD -> "discord"
+            LoginType.LINE -> "torus-auth0-line"
+            LoginType.APPLE -> "torus-auth0-apple"
+            LoginType.LINKEDIN -> "torus-auth0-linkedin"
+            LoginType.GITHUB -> "torus-auth0-github"
+            LoginType.TWITCH -> "twitch"
+            else -> "google"
+        }
+    }
+
+    private fun getTestnetVerifier(loginType: LoginType): String {
+        return when (loginType) {
+            LoginType.GOOGLE -> "google-lrc"
+            LoginType.FACEBOOK -> "facebook-lrc"
+            LoginType.TWITTER -> "torus-auth0-twitter-lrc"
+            LoginType.DISCORD -> "discord-lrc"
+            LoginType.LINE -> "torus-auth0-line-lrc"
+            LoginType.APPLE -> "torus-auth0-apple-lrc"
+            LoginType.LINKEDIN -> "torus-auth0-linkedin-lrc"
+            LoginType.GITHUB -> "torus-auth0-github-lrc"
+            LoginType.TWITCH -> "twitch-lrc"
+            else -> "google-lrc"
+        }
+    }
+
+    fun getClientId(selectedNetwork: String, loginType: LoginType): String {
+        return if (selectedNetwork == "Testnet")
+            getTestnetClientId(loginType)
+        else
+            getMainnetClientId(loginType)
+    }
+
+    fun getVerifier(selectedNetwork: String, loginType: LoginType): String {
+        return if (selectedNetwork == "Testnet")
+            getTestnetVerifier(loginType)
+        else
+            getMainnetVerfier(loginType)
+    }
+
+    fun getDomain(network: String): String {
+        return when (network) {
+            "Mainnet" -> "https://torus.au.auth0.com"
+            "Testnet" -> "https://torus-test.auth0.com"
+            else -> "https://torus.au.auth0.com"
+        }
+    }
+
+    fun getRedirectUri(network: String): String {
+        return when (network) {
+            "Mainnet" -> "https://scripts.toruswallet.io/redirect-prod.html" //https://scripts.toruswallet.io/redirect-prod.html
+            "Testnet" -> "https://scripts.toruswallet.io/redirect.html"
+            else -> "https://scripts.toruswallet.io/redirect-prod.html"
+        }
+    }
+
+    fun getBrowserRedirectUri(network: String): String {
+        return when (network) {
+            "Mainnet" -> "torus://org.torusresearch.customauth/redirect"
+            "Testnet" -> "torus://org.torusresearch.customauth/redirect"
+            else -> "torus://org.torusresearch.customauth/redirect"
         }
     }
 

@@ -14,8 +14,8 @@ android {
         versionCode 1
         versionName "1.0"
         manifestPlaceholders = [
-                'torusRedirectScheme'    : 'torusapp',
-                'torusRedirectHost'      : 'org.torusresearch.customauthandroid',
+                'torusRedirectScheme'    : 'torus',
+                'torusRedirectHost'      : 'org.torusresearch.customauth',
                 'torusRedirectPathPrefix': '/redirect'
         ]
 
@@ -46,7 +46,7 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
     //Web3Auth
-    implementation 'org.torusresearch:customauth-android-sdk:5.0.0'
+    implementation 'org.torusresearch:customauth-android-sdk:5.0.1'
 
     //ViewModel
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.0'

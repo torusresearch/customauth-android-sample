@@ -6,7 +6,6 @@ import com.web3auth.custom_auth_wallet_app.api.ApiHelper
 import com.web3auth.custom_auth_wallet_app.api.Web3AuthApi
 import com.web3auth.custom_auth_wallet_app.api.models.EthGasAPIResponse
 import com.web3auth.custom_auth_wallet_app.api.models.GasApiResponse
-import com.web3auth.custom_auth_wallet_app.api.models.Params
 import com.web3auth.custom_auth_wallet_app.utils.NetworkUtils
 import kotlinx.coroutines.*
 import org.web3j.crypto.*
@@ -125,8 +124,7 @@ class EthereumViewModel : ViewModel() {
         privateKey: String,
         recipientAddress: String,
         amountToBeSent: Double,
-        data: String?,
-        params: Params
+        data: String?
     ) {
         GlobalScope.launch {
             try {

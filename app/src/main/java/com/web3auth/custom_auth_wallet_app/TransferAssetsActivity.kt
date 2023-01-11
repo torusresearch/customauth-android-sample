@@ -242,6 +242,7 @@ class TransferAssetsActivity : AppCompatActivity() {
             }
 
             ethereumViewModel.error.observe(this) {
+                if (::transDialog.isInitialized) transDialog.dismiss()
                 if (it) {
                     toast(getString(R.string.something_went_wrong))
                 }
@@ -496,18 +497,12 @@ class TransferAssetsActivity : AppCompatActivity() {
                     intent.getStringExtra(DATA)
                 )
             } else {
-                if (this::selectedGasParams.isInitialized) {
-                    ethereumViewModel.sendTransaction(
-                        torusLoginResponse?.privateKey.toString(),
-                        receiptAdd,
-                        totalAmount.split(" ")[0].toDouble(),
-                        "",
-                        selectedGasParams
-                    )
-                } else {
-                    if (::transDialog.isInitialized) transDialog.dismiss()
-                    toast(getString(R.string.something_went_wrong_try_later))
-                }
+                ethereumViewModel.sendTransaction(
+                    torusLoginResponse?.privateKey.toString(),
+                    receiptAdd,
+                    totalAmount.split(" ")[0].toDouble(),
+                    ""
+                )
             }
         }
         tvCancel.setOnClickListener {
