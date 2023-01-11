@@ -39,9 +39,11 @@
     <string name="something_went_wrong_try_later">エラーが発生しました。あとでもう一度試してみてください。</string>
     <string name="try_again">今すぐ再試行してください</string>
     <string name="eth_view_account"><u>Etherscan でアカウントを表示</u></string>
+    <string name="bnb_view_account"><u>Bscscan でアカウントを表示</u></string>
     <string name="poly_view_account"><u>Polygonscan でアカウントを表示</u></string>
     <string name="sol_view_account"><u>Solana Explorer でアカウントを表示</u></string>
     <string name="eth_view_transaction_status"><u>Etherscan でトランザクションのステータスを表示する</u></string>
+    <string name="bnb_view_transaction_status"><u>Bscscan でトランザクションのステータスを表示する</u></string>
     <string name="poly_view_transaction_status"><u>Polygonscan でトランザクションのステータスを表示する</u></string>
     <string name="sol_view_transaction_status"><u>Solana Explorer でトランザクションのステータスを表示する</u></string>
     <string name="polygon_transaction_status_url">https://mumbai.polygonscan.com/</string>

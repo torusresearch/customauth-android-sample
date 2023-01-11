@@ -39,9 +39,11 @@
     <string name="something_went_wrong_try_later">出问题了。稍后再试。</string>
     <string name="try_again">现在再试一次</string>
     <string name="eth_view_account"><u>查看 Etherscan 上的帐户</u></string>
+    <string name="bnb_view_account"><u>查看 Bscscan 上的帐户</u></string>
     <string name="poly_view_account"><u>在 Polygonscan 上查看帐户</u></string>
     <string name="sol_view_account"><u>在 Solana Explorer 上查看帐户</u></string>
     <string name="eth_view_transaction_status"><u>在 Etherscan 上查看交易状态</u></string>
+    <string name="bnb_view_transaction_status"><u>在 Bscscan 上查看交易状态</u></string>
     <string name="poly_view_transaction_status"><u>在 Polygonscan 上查看交易状态</u></string>
     <string name="sol_view_transaction_status"><u>在 Solana Explorer 上查看交易状态</u></string>
     <string name="polygon_transaction_status_url">https://mumbai.polygonscan.com/</string>

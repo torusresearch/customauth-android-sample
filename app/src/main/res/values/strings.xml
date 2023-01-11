@@ -38,9 +38,11 @@
     <string name="try_again">Try again now</string>
     <string name="something_went_wrong_try_later">Something went wrong. Try again later.</string>
     <string name="eth_view_account"><u>View account on Etherscan</u></string>
+    <string name="bnb_view_account"><u>View account on Bscscan</u></string>
     <string name="poly_view_account"><u>View account on Polygonscan</u></string>
     <string name="sol_view_account"><u>View account on Solana Explorer</u></string>
     <string name="eth_view_transaction_status"><u>View transaction’s status on Etherscan</u></string>
+    <string name="bnb_view_transaction_status"><u>View transaction’s status on Bscscan</u></string>
     <string name="poly_view_transaction_status"><u>View transaction’s status on Polygonscan</u></string>
     <string name="sol_view_transaction_status"><u>View transaction’s status on Solana Explorer</u></string>
     <string name="polygon_transaction_status_url">https://mumbai.polygonscan.com/</string>
