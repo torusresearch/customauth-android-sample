@@ -112,7 +112,10 @@ class EthereumViewModel : ViewModel() {
     fun getGasConfig() {
         GlobalScope.launch {
             val web3AuthApi = ApiHelper.getMockGasInstance().create(Web3AuthApi::class.java)
-            val result = web3AuthApi.getGasConfig()
+            val chainId = withContext(Dispatchers.IO) {
+                web3.ethChainId().sendAsync().get()
+            }
+            val result = web3AuthApi.getGasConfig(chainId.chainId)
             if (result.isSuccessful && result.body() != null) {
                 gasAPIResponse.postValue(result.body() as GasApiResponse)
             }

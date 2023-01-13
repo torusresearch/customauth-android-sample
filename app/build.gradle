@@ -67,7 +67,7 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.9.0'
 
     //Web3j
-    implementation 'org.web3j:core:4.8.7-android'
+    implementation 'org.web3j:core:4.9.5'
 
     //QR code generator
     implementation 'com.google.zxing:core:3.4.1'
