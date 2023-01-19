@@ -49,6 +49,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvBalance: AppCompatTextView
     private lateinit var tvNetwork: AppCompatTextView
     private lateinit var tvPriceInUSD: AppCompatTextView
+    private lateinit var tvName: AppCompatTextView
+    private lateinit var tvEmail: AppCompatTextView
+    private lateinit var tvAddress: AppCompatTextView
     private lateinit var progressDialog: ProgressDialog
     private lateinit var ethereumViewModel: EthereumViewModel
     private lateinit var solanaViewModel: SolanaViewModel
@@ -57,6 +60,20 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+
+        tvExchangeRate = findViewById(R.id.tvExchangeRate)
+        etMessage = findViewById(R.id.etMessage)
+        btnSign = findViewById(R.id.btnSign)
+        tvBalance = findViewById(R.id.tvBalance)
+        tvPriceInUSD = findViewById(R.id.tvPriceInUSD)
+        swipeRefreshLayout = findViewById(R.id.swipeRefresh)
+        tvName = findViewById(R.id.tvName)
+        tvEmail = findViewById(R.id.tvEmail)
+        tvAddress = findViewById(R.id.tvAddress)
+        tvNetwork = findViewById(R.id.tvNetwork)
+        spCurrency = findViewById(R.id.spCurrency)
+        tvViewTransactionStatus = findViewById(R.id.tvViewTransactionStatus)
+
         init()
     }
 
@@ -115,12 +132,11 @@ class MainActivity : AppCompatActivity() {
             ethereumViewModel.getPublicAddress(torusLoginResponse?.publicAddress.toString())
         }
 
-        findViewById<AppCompatTextView>(R.id.tvName).text =
+        tvName.text =
             getString(R.string.welcome).plus(" ").plus(
                 torusLoginResponse?.userInfo?.name?.split(" ")?.get(0)
             ).plus("!")
 
-        val tvEmail = findViewById<AppCompatTextView>(R.id.tvEmail)
         tvEmail.text = torusLoginResponse?.userInfo?.email
         val loginType =
             this.applicationContext.web3AuthWalletPreferences.getString(LOGINTYPE, "")
@@ -159,7 +175,7 @@ class MainActivity : AppCompatActivity() {
 
             ethereumViewModel.publicAddress.observe(this) {
                 publicAddress = it
-                findViewById<AppCompatTextView>(R.id.tvAddress).text =
+                tvAddress.text =
                     publicAddress.take(3).plus("...").plus(publicAddress.takeLast(4))
                 this.applicationContext.web3AuthWalletPreferences[PUBLICKEY] = publicAddress
                 if (publicAddress.isNotEmpty()) {
@@ -192,7 +208,7 @@ class MainActivity : AppCompatActivity() {
             solanaViewModel.publicAddress.observe(this) {
                 if (it.isNotEmpty()) {
                     publicAddress = it
-                    findViewById<AppCompatTextView>(R.id.tvAddress).text =
+                    tvAddress.text =
                         publicAddress.take(3).plus("...").plus(publicAddress.takeLast(4))
                     this.applicationContext.web3AuthWalletPreferences[PUBLICKEY] =
                         publicAddress
@@ -224,12 +240,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpListeners() {
-        tvExchangeRate = findViewById(R.id.tvExchangeRate)
-        etMessage = findViewById(R.id.etMessage)
-        btnSign = findViewById(R.id.btnSign)
-        tvBalance = findViewById(R.id.tvBalance)
-        tvPriceInUSD = findViewById(R.id.tvPriceInUSD)
-        swipeRefreshLayout = findViewById(R.id.swipeRefresh)
         findViewById<AppCompatButton>(R.id.btnTransfer).setOnClickListener {
             if (tvBalance.text.toString().toDouble().compareTo(0.0) == 0) {
                 toast(getString(R.string.insufficient_balance))
@@ -280,12 +290,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setData() {
-        tvNetwork = findViewById(R.id.tvNetwork)
         tvNetwork.text = blockChain.plus(" ")
-        spCurrency = findViewById(R.id.spCurrency)
         setUpSpinner()
 
-        tvViewTransactionStatus = findViewById(R.id.tvViewTransactionStatus)
         tvViewTransactionStatus.text = Web3AuthUtils.getAccountViewText(this, blockChain)
         tvViewTransactionStatus.setOnClickListener {
             var accountUrl = Web3AuthUtils.getViewTransactionUrl(this, blockChain)

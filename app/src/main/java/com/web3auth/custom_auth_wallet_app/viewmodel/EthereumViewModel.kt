@@ -46,7 +46,6 @@ class EthereumViewModel : ViewModel() {
             val clientVersion: Web3ClientVersion = web3.web3ClientVersion().sendAsync().get()
             isWeb3Configured.value = !clientVersion.hasError()
         } catch (e: Exception) {
-            error.postValue(true)
             e.printStackTrace()
         }
     }

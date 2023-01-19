@@ -19,3 +19,26 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-keepattributes SourceFile,LineNumberTable
+-renamesourcefileattribute SourceFile
+
+-dontobfuscate
+-dontoptimize
+-keepattributes Signature
+-keepattributes Exceptions
+-keepattributes *Annotation*
+
+# Gson
+-dontwarn sun.misc.**
+-keep class com.google.gson.examples.android.model.** { *; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+
+# Retrofit
+-dontnote retrofit2.Platform
+-dontwarn okio.**
+-dontwarn retrofit2.**
+-dontwarn javax.annotation.**
+
+-keepnames class kotlinx.** { *; }
