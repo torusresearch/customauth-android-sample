@@ -35,10 +35,9 @@
 -keep class * implements com.google.gson.JsonSerializer
 -keep class * implements com.google.gson.JsonDeserializer
 
-# Retrofit
--dontnote retrofit2.Platform
--dontwarn okio.**
--dontwarn retrofit2.**
--dontwarn javax.annotation.**
+-keep class org.p2p.solanaj.**  { *; }
+-keepclassmembers class kotlin.Metadata {
+   public <methods>;
+}
 
--keepnames class kotlinx.** { *; }
+-keep class kotlin.reflect.jvm.internal.** { *; }
