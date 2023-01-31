@@ -69,4 +69,16 @@
         app:layout_constraintTop_toBottomOf="@+id/tvAddress"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivQRCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="5sp"
+        android:textColor="@color/black"
+        android:layout_marginTop="15dp"
+        android:textStyle="bold" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

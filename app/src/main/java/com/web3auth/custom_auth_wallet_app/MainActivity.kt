@@ -317,6 +317,8 @@ class MainActivity : AppCompatActivity() {
                 getString(R.string.usd)
             )
         }
+
+        tvAddress.setOnClickListener { copyToClipboard(publicAddress) }
     }
 
     private fun setUpSpinner() {

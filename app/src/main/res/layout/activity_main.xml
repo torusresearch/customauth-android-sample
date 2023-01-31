@@ -229,7 +229,7 @@
                         android:gravity="center_horizontal"
                         android:text="@string/eth_view_transaction_status"
                         android:textColor="@color/purple_500"
-                        android:textSize="14sp" />
+                        android:textSize="16sp" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btnTransfer"
